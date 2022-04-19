@@ -70,13 +70,45 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'html', 'cssls', 'jsonls' }
 
+--local function ts_server()
+  --require("lspconfig").tsserver.setup({
+      --on_attach = function(client)
+          --client.resolved_capabilities.document_formatting = false
+          --client.resolved_capabilities.document_range_formatting = false
+      --end,
+      ---- update imports on file move
+      --update_imports_on_move = true,
+      --require_confirmation_on_move = true,
+      --watch_dir = nil,
+  --})
+--end
+
+--for _, lsp in ipairs(servers) do
+  ----lspconfig[server].setup {
+    ----on_attach = function(client, bufnr)
+      --if client.name ~= 'tsserver' then
+        --require("lspconfig").tsserver.setup({
+            --on_attach = function(client)
+                --client.resolved_capabilities.document_formatting = false
+                --client.resolved_capabilities.document_range_formatting = false
+            --end,
+            ---- update imports on file move
+            --update_imports_on_move = true,
+            --require_confirmation_on_move = true,
+            --watch_dir = nil,
+        --})
+      --end
+    ----common_on_attach(client,buffer)
+  ----},
+--end
+
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
-    }
+    },
   }
 end
 
@@ -89,6 +121,7 @@ require("lspconfig").tsserver.setup({
     update_imports_on_move = true,
     require_confirmation_on_move = true,
     watch_dir = nil,
+    --print [[from tsserver setup code block]]
 })
 
 require("lspconfig").cssls.setup{
