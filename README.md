@@ -1,4 +1,4 @@
-#NEOVIM config files
+# NEOVIM config files
 naturally, this is a work in progress.
 
 Typescript development: working
