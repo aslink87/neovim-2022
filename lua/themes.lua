@@ -25,3 +25,11 @@ end
 --]])
 
 --vim.g.airline_theme = 'minimalist'
+
+
+
+-- dashboard
+--vim.cmd [[
+  --let g.dashboard_default_executive ='clap'
+--]]
+

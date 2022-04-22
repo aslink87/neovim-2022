@@ -16,6 +16,7 @@ require('packer').startup(function(use)
   use 'vim-airline/vim-airline-themes'
   use 'preservim/nerdcommenter'
   use 'kyazdani42/nvim-web-devicons'
+  use 'glepnir/dashboard-nvim'
   --use 'lukas-reineke/indent-blankline.nvim'
   -- telescope
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
