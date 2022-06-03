@@ -1,9 +1,10 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float() close_events = {"CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave"}<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+--vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.close_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 local protocol = require('vim.lsp.protocol')
@@ -148,4 +149,12 @@ require("lspconfig").cssls.setup{
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
   end,
+
+  vim.cmd [[
+    augroup format_on_save
+      au!
+      autocmd! * <buffer>
+      au BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync(nil, 2000)
+    augroup end
+  ]]
 }
