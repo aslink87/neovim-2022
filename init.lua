@@ -48,7 +48,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
   -- null-ls
-  use 'jose-elias-alvarez/null-ls.nvim'
+  --use 'jose-elias-alvarez/null-ls.nvim'
   -- snippets
   use 'rafamadriz/friendly-snippets'
 
@@ -63,7 +63,7 @@ require('keymaps')
 require('themes')
 require('commands')
 require('lsp')
-require('nullls')
+--require('nullls')
 require('autopairs')
 require('airline')
 require('comp')
