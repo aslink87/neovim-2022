@@ -11,6 +11,8 @@ vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*/node_modules/*", comman
 -- Enable spell checking for certain file types
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
   command = "setlocal spell" })
+-- Autoformat on save
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "buffer=true" }, command = "lua vim.lsp.buf.formatting_sync()" })
 
 -- Attach specific keybindings in which-key for specific filetypes
 local present, _ = pcall(require, "which-key")

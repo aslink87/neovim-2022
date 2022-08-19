@@ -28,15 +28,20 @@ keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
 
 -- Telescope
 keymap("n", "<Leader>ff", "<CMD>lua require('telescope.builtin').find_files()<CR>")
+<<<<<<< HEAD
 -- keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
 -- keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
+=======
+keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
+keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
+>>>>>>> 24ac431 (refactor: added format on save, adjusted keymaps)
 
 -- Remove highlights
 keymap("n", "<CR>", ":noh<CR><CR>", silent)
 
 -- Find word/file across project
-keymap("n", "<Leader>pf", "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
-keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
+keymap("n", "<Leader>fp", "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
+keymap("n", "<Leader>fw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'insert' })<CR>")
 
 -- Buffers
 keymap("n", "<Tab>", ":BufferNext<CR>", silent)
