@@ -27,8 +27,9 @@ keymap("n", "<C-s>", ":w<CR>", silent)
 keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
 
 -- Telescope
-keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
-keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
+keymap("n", "<Leader>ff", "<CMD>lua require('telescope.builtin').find_files()<CR>")
+-- keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
+-- keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
 
 -- Remove highlights
 keymap("n", "<CR>", ":noh<CR><CR>", silent)
@@ -112,7 +113,7 @@ keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent)
 keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)
-keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", silent)
+keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting({ async = true })<CR>", silent)
 keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", silent)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
