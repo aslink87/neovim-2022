@@ -116,6 +116,7 @@ return require('packer').startup({
     use { 'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')" }
     use { 'NvChad/nvim-colorizer.lua', config = "require('plugins.colorizer')" }
     use { 'L3MON4D3/LuaSnip', requires = { 'rafamadriz/friendly-snippets' }, after = 'cmp_luasnip' }
+    use { 'windwp/nvim-ts-autotag' }
 
     -- Git
     use { 'lewis6991/gitsigns.nvim',
