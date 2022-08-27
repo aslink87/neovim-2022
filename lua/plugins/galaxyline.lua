@@ -90,7 +90,7 @@ local colors = {
   lsptext = '#C5C5C5',
 
   typeicon = '#FF8800',
-  typebg   = '#5C2C2E',
+  typebg   = '#4C2C2E',
   typetext = '#C5C5C5',
 
   statsicon = '#9CDCFE',
@@ -199,6 +199,7 @@ end
 gls.left = {}
 
 -- Edit mode {{{2
+--[[
 table.insert(gls.left, {
   ViModeSpaceOnFarLeft = {
     provider = function() return " " end,
@@ -234,6 +235,7 @@ table.insert(gls.left, {
     highlight = 'ViModeHighlight'
   }
 })
+]]
 -- }}}2
 
 -- Git info {{{2
@@ -484,6 +486,7 @@ table.insert(gls.right, {
     highlight = { colors.typetext, colors.typebg }
   }
 })
+--[[
 table.insert(gls.right, {
   FileSize = {
     provider = 'FileSize',
@@ -500,6 +503,7 @@ table.insert(gls.right, {
     highlight = { colors.typetext, colors.typebg }
   }
 })
+]]
 table.insert(gls.right, {
   TypeSectionEnd = {
     provider = function() return rightbracket end,
@@ -586,6 +590,7 @@ table.insert(gls.right, {
     highlight = 'LineLenHighlightLenNum'
   }
 })
+--[[
 table.insert(gls.right, {
   LineLengthEnd = {
     provider = function()
@@ -622,6 +627,7 @@ table.insert(gls.right, {
     highlight = { colors.statstext, colors.statsbg }
   }
 })
+]]
 table.insert(gls.right, {
   StatsSpcSectionEnd = {
     provider = function() return rightbracket .. " " end,
