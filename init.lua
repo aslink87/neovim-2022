@@ -9,6 +9,7 @@ require('keymappings')
 require('autocmds')
 require('functions')
 require('internal.cursorword')
+require('plugins.lualine')
 
 require('lsp.config')
 require('lsp.setup')
