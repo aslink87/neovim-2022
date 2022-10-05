@@ -1,7 +1,5 @@
 -- Auto sync plugins on save of plugins.lua
 vim.api.nvim_create_autocmd("BufWritePost", { pattern = "plugins.lua", command = "source <afile> | PackerSync" })
--- Autoformat on save
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "buffer=true" }, command = "lua vim.lsp.buf.formatting_sync()" })
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost",
   { callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200 }) end })
@@ -12,7 +10,7 @@ vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*/node_modules/*", comman
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
   command = "setlocal spell" })
 -- Autoformat on save
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "buffer=true" }, command = "lua vim.lsp.buf.formatting_sync()" })
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "buffer=true" }, command = "lua vim.lsp.buf.formatting_seq_sync()" })
 
 -- Attach specific keybindings in which-key for specific filetypes
 local present, _ = pcall(require, "which-key")
