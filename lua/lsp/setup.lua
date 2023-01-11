@@ -19,7 +19,7 @@ mason_lsp.setup {
   -- A list of servers to automatically install if they're not already installed
   ensure_installed = { "bash-language-server", "css-lsp", "eslint-lsp", "graphql-language-service-cli", "html-lsp",
     "json-lsp", "lua-language-server", "tailwindcss-language-server", "typescript-language-server",
-    "vetur-vls", "vue-language-server", "chrome-debug-adapter", "node-debug2-adapter", "prisma-language-server" },
+    "vetur-vls", "vue-language-server", "chrome-debug-adapter", "node-debug2-adapter", "prisma-language-server", "svelte-language-server" },
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -107,6 +107,32 @@ lspconfig.vuels.setup {
   init_options = require('lsp.servers.vuels').init_options,
   on_attach = on_attach,
 }
+
+-- lspconfig.sveltels.setup {
+--   filetypes = require('lsp.servers.sveltels').filetypes,
+--   handlers = handlers,
+--   init_options = require('lsp.servers.sveltels').init_options,
+--   on_attach = on_attach,
+-- }
+
+require("lspconfig").svelte.setup({
+	filetypes = { "svelte", "svx" },
+	on_attach = function(client, bufnr)
+		--[[ client.server_capabilities.documentFormattingProvider = false ]]
+		--[[ client.server_capabilities.documentRangeFormattingProvider = false ]]
+		on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+	handlers = handlers,
+	settings = {
+		html = {
+			completion = {
+				enable = true,
+				emmet = false,
+			},
+		},
+	},
+})
 
 for _, server in ipairs { "bashls", "cssls", "graphql", "html", "volar", "prismals" } do
   lspconfig[server].setup {
