@@ -7,6 +7,7 @@ return {
       servers = {
         tailwindcss = {},
         cssls = {},
+        svelte = {},
         eslint = {
           init = function()
             require("lspconfig.server_configurations.eslint").on_attach(function(_, buffer)

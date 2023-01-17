@@ -6,6 +6,7 @@ return {
         "css",
         "jsdoc",
         "scss",
+        "svelte"
       },
     },
   },
