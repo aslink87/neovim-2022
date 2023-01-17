@@ -62,7 +62,7 @@ return {
         sources = {
           nls.builtins.formatting.prettierd.with({
             filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less",
-              "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars", "svelte" }
+              "html", "json", "jsonc", "yaml", "graphql", "handlebars", "svelte" }
           }),
           nls.builtins.formatting.rustywind,
           -- nls.builtins.formatting.prettier,
