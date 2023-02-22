@@ -36,7 +36,6 @@ return {
       ---@type lspconfig.options
       servers = {
         jsonls = {},
-        tailwindcss = {},
         cssls = {},
         svelte = {},
         eslint = {
