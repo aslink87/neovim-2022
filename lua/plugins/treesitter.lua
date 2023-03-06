@@ -4,6 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        -- others builtin by default
         "css",
         "jsdoc",
         "scss",
