@@ -3,8 +3,8 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+      { "folke/neoconf.nvim", cmd = "Neoconf",                                config = true },
+      { "folke/neodev.nvim",  opts = { experimental = { pathStrict = true } } },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
@@ -146,7 +146,7 @@ return {
             },
           }),
           nls.builtins.formatting.rustywind,
-          -- nls.builtins.formatting.prettier,
+          nls.builtins.formatting.prettier,
           nls.builtins.diagnostics.eslint,
           -- nls.builtins.formatting.stylua,
           -- nls.builtins.diagnostics.flake8,
