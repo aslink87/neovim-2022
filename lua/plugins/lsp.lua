@@ -153,9 +153,9 @@ return {
           -- nls.builtins.formatting.stylua,
           -- nls.builtins.diagnostics.flake8,
         },
-        filetypes = {
-          "svelte",
-        },
+        -- filetypes = {
+        --   "svelte",
+        -- },
       }
     end,
   },

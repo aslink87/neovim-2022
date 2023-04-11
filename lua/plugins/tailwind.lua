@@ -6,7 +6,18 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        tailwindcss = {},
+        tailwindcss = {
+          hovers = true,
+          suggestions = true,
+          root_dir = function(fname)
+            local root_pattern = require("lspconfig").util.root_pattern(
+              "tailwind.config.cjs",
+              "tailwind.config.js",
+              "postcss.config.js"
+            )
+            return root_pattern(fname)
+          end,
+        },
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -15,19 +26,19 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-      opts = {
-        user_default_options = {
-          tailwind = true,
-        },
-        filetypes = {
-          'css',
-          'javascript',
-          'javascriptreact',
-          'typescript',
-          'typescriptreact',
-        },
+    opts = {
+      user_default_options = {
+        tailwind = true,
       },
-      lazy = false,
+      filetypes = {
+        'css',
+        'javascript',
+        'javascriptreact',
+        'typescript',
+        'typescriptreact',
+      },
+    },
+    lazy = false,
   },
   {
     "hrsh7th/nvim-cmp",
