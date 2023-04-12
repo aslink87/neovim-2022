@@ -8,7 +8,9 @@ return {
         "css",
         "jsdoc",
         "scss",
-        "svelte"
+        "svelte",
+        "rust",
+        "toml"
       },
       pickers = {
         find_files = {
