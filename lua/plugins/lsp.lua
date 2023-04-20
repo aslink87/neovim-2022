@@ -56,6 +56,11 @@ return {
                   enable = true,
                 },
               },
+              check = {
+                allFeatures = true,
+                command = "clippy",
+                extraArgs = { "--no-deps" },
+              },
               procMacro = {
                 enable = true,
               },
