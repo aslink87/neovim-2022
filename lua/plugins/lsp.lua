@@ -161,12 +161,12 @@ return {
       },
     },
     ---@param opts PluginLspOpts
-    config = function(plugin, opts)
+    config = function(_, opts)
+      local Util = require("lazyvim.util")
       -- setup autoformat
-      require("lazyvim.plugins.lsp.format").autoformat = opts.autoformat
+      require("lazyvim.plugins.lsp.format").setup(opts)
       -- setup formatting and keymaps
-      require("lazyvim.util").on_attach(function(client, buffer)
-        require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
+      Util.on_attach(function(client, buffer)
         require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
@@ -254,9 +254,7 @@ return {
             },
           }),
           nls.builtins.formatting.rustywind,
-          -- nls.builtins.formatting.prettier,
           nls.builtins.formatting.prettierd,
-          -- nls.builtins.diagnostics.eslint,
           nls.builtins.diagnostics.eslint_d,
           -- nls.builtins.formatting.stylua,
           -- nls.builtins.diagnostics.flake8,
