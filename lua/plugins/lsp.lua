@@ -243,7 +243,6 @@ return {
               "vue",
               "css",
               "scss",
-              "css",
               "less",
               "html",
               "json",
