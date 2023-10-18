@@ -1,4 +1,3 @@
-local pickers = require "telescope.pickers"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -10,11 +9,11 @@ return {
         "scss",
         "svelte",
         "rust",
-        "toml"
+        "toml",
       },
       pickers = {
         find_files = {
-          hidden = true
+          hidden = true,
         },
       },
     },

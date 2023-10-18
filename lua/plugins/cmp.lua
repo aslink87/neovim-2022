@@ -8,12 +8,6 @@ local M = {
     "hrsh7th/cmp-path",
     "onsails/lspkind-nvim",
     "saadparwaiz1/cmp_luasnip",
-    {
-      "zbirenbaum/copilot-cmp",
-      config = function()
-        require("copilot_cmp").setup()
-      end,
-    },
   },
   opts = function()
     local cmp = require("cmp")
@@ -63,18 +57,18 @@ local M = {
             Event = "",
             Operator = "",
             TypeParameter = "",
-            Copilot = ""
+            Copilot = "",
           }
           if icons[item.kind] then
             -- item.kind = icons[item.kind] .. item.kind
-            item.kind = string.format('%s %s', kind_icons[item.kind], item.kind)
+            item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
           end
           return item
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),

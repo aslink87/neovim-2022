@@ -31,13 +31,17 @@ return {
           showcmd = false, -- disables the command in the last line of the screen
         },
         twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
-        gitsigns = { enabled = false }, -- disables git signs
-        tmux = { enabled = false }, -- disables the tmux statusline
+        gitsigns = { enabled = true }, -- disables git signs
+        tmux = { enabled = true }, -- disables the tmux statusline
       },
       -- callback where you can add custom code when the Zen window opens
-      on_open = function(win) end,
+      on_open = function()
+        vim.cmd("set laststatus=1")
+      end,
       -- callback where you can add custom code when the Zen window closes
-      on_close = function() end,
+      on_close = function()
+        vim.cmd("set laststatus=3")
+      end,
     },
     lazy = false,
   },
