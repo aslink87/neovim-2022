@@ -85,5 +85,8 @@ return {
       group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
       callback = M.debounce(100, M.lint),
     })
+    vim.keymap.set("n", "<leader>cl", function()
+      lint.try_lint()
+    end, { desc = "Trigger linting for current file" })
   end,
 }

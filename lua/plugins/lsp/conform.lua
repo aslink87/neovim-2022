@@ -7,10 +7,14 @@ return {
     {
       "<leader>cF",
       function()
-        require("conform").format({ formatters = { "injected" } })
+        require("conform").format({
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        })
       end,
       mode = { "n", "v" },
-      desc = "Format Injected Langs",
+      desc = "Format File",
     },
   },
   init = function()
@@ -66,23 +70,17 @@ return {
         javascript = { { "prettierd", "prettier" } },
         javascriptreact = { { "prettierd", "prettier" } },
         svelte = { { "prettierd", "prettier" } },
+        -- svelte = { { "svelte_fmt" } },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
       ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
       formatters = {
         injected = { options = { ignore_errors = true } },
-        -- # Example of using dprint only when a dprint.json file is present
-        -- dprint = {
-        --   condition = function(ctx)
-        --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
-        --   end,
-        -- },
-        --
-        -- # Example of using shfmt with extra args
-        -- shfmt = {
-        --   prepend_args = { "-i", "2", "-ci" },
-        -- },
+        svelte_fmt = {
+          command = "prettier",
+          args = { "--plugin", "prettier-plugin-svelte", "$FILENAME" },
+        },
       },
     }
     return opts
