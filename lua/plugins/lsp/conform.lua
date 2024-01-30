@@ -30,10 +30,9 @@ return {
       typescriptreact = { { "prettierd", "prettier" } },
       javascript = { { "prettierd", "prettier" } },
       javascriptreact = { { "prettierd", "prettier" } },
-      svelte = { "svelte_fmt" },
+      svelte = { { "prettierd", "prettier" } },
     },
     formatters = {
-      injected = { options = { ignore_errors = true } },
       svelte_fmt = {
         command = "prettier",
         args = { "--plugin", "prettier-plugin-svelte", "$FILENAME" },
