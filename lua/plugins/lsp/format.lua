@@ -34,7 +34,7 @@ local cmds = {
   typescript = ext_fmt("prettierd -w"),
   typescriptreact = ext_fmt("prettierd -w"),
   yaml = ext_fmt("prettier -w"),
-  svelte = ext_fmt("prettierd -w"),
+  svelte = ext_fmt("prettier --plugin prettier-plugin-svelte -w"),
 }
 
 local X = {}
