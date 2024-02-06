@@ -13,7 +13,6 @@ return {
     local lspconfig = require("lspconfig")
     local remaps = require("plugins.lsp.remaps")
     local icons = require("utils.icons")
-
     local presentCmpNvimLsp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
     local presentLspSignature, lsp_signature = pcall(require, "lsp_signature")
 
