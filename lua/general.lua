@@ -67,3 +67,13 @@ vim.opt.autoindent = true
 
 -- enable top winbar to show buffers
 vim.opt.winbar = "%=%m %f"
+
+-- use treesitter for folds
+-- vim.wo.foldmethod = "expr"
+-- vim.o.foldenable = true
+vim.opt.foldenable = true
+vim.opt.foldmethod = "manual"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
