@@ -7,6 +7,9 @@ return {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   },
   event = { "BufReadPre", "BufNewFile" },
+  opts = {
+    inlay_hints = { enabled = true },
+  },
   config = function()
     -- require("neodev").setup({})
     require("lsp_lines").setup()
@@ -88,7 +91,9 @@ return {
       tailwindcss = {},
       terraformls = {},
       tflint = {},
-      tsserver = require("plugins.lsp.servers.tsserver")(on_attach),
+      -- tsserver = require("plugins.lsp.servers.tsserver")(on_attach),
+      tsserver = require("plugins.lsp.servers.vtsls")(on_attach),
+      -- tsserver = require("lspconfig").vtsls.setup()(on_attach),
       yamlls = {},
     }
 
