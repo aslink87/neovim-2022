@@ -24,4 +24,15 @@ local Tokyonight = {
   end,
 }
 
-return Tokyonight
+-- options include: wave, lotus, dragon
+local Theme = "wave"
+
+local Kanagawa = {
+  "rebelot/kanagawa.nvim",
+  lazy = false,
+  config = function()
+    vim.cmd("colorscheme kanagawa-" .. Theme)
+  end,
+}
+
+return Kanagawa
