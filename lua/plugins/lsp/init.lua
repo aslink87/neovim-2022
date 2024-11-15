@@ -9,5 +9,9 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   opts = {
     inlay_hints = { enabled = false },
+    servers = {
+      cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
+      tailwindcss = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
+    },
   },
 }
