@@ -7,6 +7,8 @@ return {
   },
   init = function()
     local data_path = vim.fn.stdpath("config") .. require("plenary.path").path.sep
+    -- -- save location
+    -- ~/.local/share/nvim/dadbod_ui
 
     vim.g.db_ui_save_location = data_path .. "db_ui"
     vim.g.db_ui_auto_execute_table_helpers = 1
